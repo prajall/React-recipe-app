@@ -58,7 +58,7 @@ const Searched = () => {
                     alt="item.title"
                     className="w-full rounded-lg"
                   />
-                  <p className="text-center">{item.title}</p>
+                  <p className="text-center mt-2">{item.title}</p>
                 </Link>
               </div>
             </motion.div>
