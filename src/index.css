@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inconsolata:wght@500&family=Poppins:wght@500&family=Ubuntu:wght@300&display=swap'); */
+
+
+.styled-font {
+  font-family: 'Dancing Script', cursive;
+
+}
+
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  letter-spacing: 0.7px;
+  background-color: #fff7ed;
+  font-size: 16px;
+}
+
+.hero {
+  background-image: url(/src/images/hero-image.jpg);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+
+}
+
+.splide__arrow--prev {
+  margin-left: -24px;
+  margin-top: -20px;
+}
+
+.splide__arrow--next {
+  margin-right: -24px;
+  margin-top: -20px;
+}
+
+.font-times {
+  font-family: 'Times New Roman', Times, serif;
+}
