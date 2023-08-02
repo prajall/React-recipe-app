@@ -5,10 +5,10 @@ import Pages from "./Pages";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 
+const Home = () => {
   useEffect(() => {
     document.title = "Chef's Recipes";
   }, []);
-const Home = () => {
   return (
     <div className="my-10 md:my-5 lg:my-0">
       <Hero />
