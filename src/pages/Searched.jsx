@@ -29,15 +29,19 @@ const Searched = () => {
   };
 
   useEffect(() => {
+    document.title = `'${params.searchQuery}' search results`;
+  }, []);
+
+  useEffect(() => {
     getSearchedItems();
   }, [params.searchQuery]);
 
   return (
     <div className="my-7 mx-auto flex flex-col justify-center">
-      <p className="text-3xl font-bold mb-7">
+      <p className="text-3xl text-center font-bold mb-7">
         Results for "{params.searchQuery}":
       </p>
-      <div className="grid lg:grid-cols-3">
+      <div className="grid justify-center md:grid-cols-2 lg:grid-cols-3 gap-7">
         {searchedItems.map((item) => {
           return (
             <motion.div
@@ -47,7 +51,7 @@ const Searched = () => {
               whileHover={{ scale: 1.1 }}
               key={item.id}
             >
-              <div className="card max-w-[500px] rounded-lg my-5">
+              <div className="card max-w-[500px] rounded-lg  my-5">
                 <Link to={`/recipe/${item.id}`}>
                   <img
                     src={item.image}

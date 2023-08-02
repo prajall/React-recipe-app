@@ -26,38 +26,39 @@ const Cousine = () => {
 
   useEffect(() => {
     getCousine(params.type);
+    document.title = `${params.type} cousines`;
   }, [params.type]);
 
   return (
-    <Grid>
+    <div className="grid justify-center md:grid-cols-2 lg:grid-cols-3 gap-7 my-7">
       {cousine.map((item) => {
         return (
-          <Card key={item.id}>
-            <Link to={`/recipe/${item.id}`}>
-              <img src={item.image} alt="item.title" />
-              <p className="mt-2">{item.title}</p>
-            </Link>
-          </Card>
+          <motion.div
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ ease: "easeOut", duration: 0.5 }}
+            whileHover={{ scale: 1.1 }}
+            key={item.id}
+          >
+            <Card key={item.id}>
+              <Link to={`/recipe/${item.id}`}>
+                <img src={item.image} alt="item.title" />
+                <p className="mt-2">{item.title}</p>
+              </Link>
+            </Card>
+          </motion.div>
         );
       })}
-    </Grid>
+    </div>
   );
 };
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  grid-gap: 3rem;
-`;
+
 const Card = styled.div`
   border-radius: 15px;
-  // overflow: hidden;
-  // margin: 0px 10px;
 
   img {
     border-radius: 15px;
-    // object-fit: cover;
-    // max-width: 300px;
-    height: auto;
+    // height: auto;
   }
 `;
 export default Cousine;

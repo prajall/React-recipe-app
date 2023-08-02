@@ -23,7 +23,7 @@ const Recipe = () => {
       const recipe = await response.json();
 
       setInformation(recipe);
-      setLoading(false); // Set loading to false after fetching data from API
+      setLoading(false);
       localStorage.setItem(params.recipeId, JSON.stringify(recipe));
     }
   };
@@ -32,6 +32,9 @@ const Recipe = () => {
     getRecipe();
     console.log("use effect");
   }, []);
+  useEffect(() => {
+    document.title = information.title;
+  }, [information]);
 
   if (loading) {
     return (
@@ -39,7 +42,7 @@ const Recipe = () => {
         <img
           src={loadingImg}
           alt="loading"
-          className="animate-spin w-[30px] mr-2"
+          className="animate-spin w-[30px] h-[30px] mr-2"
         />
         <p className="">Loading...</p>
       </div>
@@ -91,9 +94,11 @@ const Recipe = () => {
           <div className="information max-w-[500px]">
             {activeTab === "ingredients" && (
               <div>
-                {information.extendedIngredients.map((ingredient) => (
-                  <p key={ingredient.id}>{ingredient.original}</p>
-                ))}
+                <ul className="list-disc">
+                  {information.extendedIngredients.map((ingredient) => (
+                    <li key={ingredient.id}>{ingredient.original}</li>
+                  ))}
+                </ul>
               </div>
             )}
             {activeTab === "instructions" && (
@@ -104,9 +109,6 @@ const Recipe = () => {
           </div>
         </div>
       </div>
-      {/* <div className="similar">
-        <Similar />
-      </div> */}
     </div>
   );
 };
